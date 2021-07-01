@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent #셋팅스의 부모파일은 위드티쳐, 그의 부모파일은 위드티쳐
+BASE_DIR = Path(__file__).resolve().parent.parent #셋팅스의 부모파일은 위드티쳐, 그의 부모파일은 위드티쳐=최상위폴더
 
 env_list = dict()
 
