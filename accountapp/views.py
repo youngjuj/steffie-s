@@ -15,8 +15,11 @@ def hello_world(request):
         new_hello_world.text = temp
         new_hello_world.save()
 
+        hello_world_list = HelloWorld.objects.all() #헬로월드라는 리스트에 헬로월드 클래스의 모든 것을 집어넣음
+
         return render(request, 'accountapp/hello_world.html',
-                      context={'new_hello_world': new_hello_world})
+                      context={'hello_world_list': hello_world_list})
     else:
+        hello_world_list = HelloWorld.objects.all()
         return render(request, 'accountapp/hello_world.html',
-                      context={'text': 'GET METHOD'})
+                      context={'hello_world_list': hello_world_list})
