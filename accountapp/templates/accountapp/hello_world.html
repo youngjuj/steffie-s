@@ -3,14 +3,14 @@
 {% block content %}
     <style>
 
-    .testing{
-        background-color: yellow;
-        margin: 1rem;
-        height: 48px;
-        width: 48px;
-        border-radius: .5rem;
-        display:inline-block;
-    }
+        .testing {
+            background-color: yellow;
+            margin: 1rem;
+            height: 48px;
+            width: 48px;
+            border-radius: .5rem;
+            display: inline-block;
+        }
 
     </style>
 
@@ -20,13 +20,18 @@
 
         <form action="/accounts/hello_world/" method="post">
             {% csrf_token %}
+            <div class="input-group mb-3 w-25 p-3 m-auto">
+                <input type="text" class="form-control" placeholder="Recipient's username"
+                       aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+            </div>
             <input type="text" name="input_text">
             <input type="submit" class="btn btn-primary rounded-pill px-4">
         </form>
 
         {% for hello_world in hello_world_list %}
             <h3>{{ hello_world.text }}</h3>
-        {% endfor  %}
+        {% endfor %}
 
     </div>
 
