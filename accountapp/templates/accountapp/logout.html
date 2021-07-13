@@ -6,11 +6,11 @@
     <div style="text-align: center">
         <div class="m-5">
             <h4>
-                Sign Up
+                Logout
             </h4>
         </div>
         <div>
-            <form action="{% url 'accountapp:create'%} "method="post">
+            <form action="{% url 'accountapp:logout'%} "method="post">
                 {% csrf_token %}
                 {{ form }}
                 <div class="m-5">

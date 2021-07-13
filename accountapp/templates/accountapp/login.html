@@ -3,14 +3,14 @@
 {% block content %}
 
 
-    <div style="text-align: center">
+    <div class="text-center">
         <div class="m-5">
             <h4>
-                Sign Up
+                Login
             </h4>
         </div>
         <div>
-            <form action="{% url 'accountapp:create'%} "method="post">
+            <form action="{% url 'accountapp:login'%} "method="post">
                 {% csrf_token %}
                 {{ form }}
                 <div class="m-5">
