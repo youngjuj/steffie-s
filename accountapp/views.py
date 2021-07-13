@@ -31,7 +31,7 @@ def hello_world(request):
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world')  #주소 역추적>>필요할 때 불러다 쓰는 method
+    success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/create.html'
 
 
