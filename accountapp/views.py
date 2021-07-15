@@ -6,7 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 #alt + enter 하면 오류를 알려주고 오류 해결방법을 제시해줌, 엔터하면 다 해결
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountapp.models import HelloWorld
 
@@ -34,4 +34,7 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/create.html'
 
-
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user'
+    template_name = 'accountapp/detail.html'
