@@ -9,6 +9,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,
                                 related_name='profile' )
 
-    image = models.ImageField(models.ImageField(upload_to='profile/', null=True)) #경로지정
+    image = models.ImageField(upload_to='profile/', null=True) #경로지정
     nickname = models.CharField(max_length=30, unique=True, null=True)
     message = models.CharField(max_length=200, null=True)
