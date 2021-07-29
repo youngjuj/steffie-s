@@ -54,8 +54,10 @@ class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountCreationForm
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
+
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
 
     # def get(self, request, *args, **kwargs): #get은 method임
     #     if request.user.is_authenticated and self.get_object() == request.user:
