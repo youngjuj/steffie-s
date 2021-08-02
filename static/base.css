@@ -3,7 +3,7 @@
 }
 
 .STEFFIE_header_button{
-    margin-bottom=2rem;
+    margin-bottom:2rem;
 }
 
 .STEFFIE_footer_logo{
@@ -15,10 +15,10 @@
 }
 
 
-.mw-500{
-    max-width: 500px;
-    padding: 1rem 1.5rem;
-}     #내부너비
+/*.mw-500{*/
+/*    max-width: 500px;*/
+/*    padding: 1rem 1.5rem;*/
+/*}     #내부너비*/
 
 
 
@@ -39,7 +39,7 @@
     text-decorattion: none;
     box-shadow: 0 0 3px black;
     border-radius: 20rem;
-    padding: .3rem;
+    padding: .1rem;
 }
 
 .round_button:hover{
