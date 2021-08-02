@@ -268,7 +268,7 @@ MagicGrid.prototype.listen = function listen () {
         }, 200);
       }
     });
-
+//희미한 글씨는 굳이 작성 no
     this.positionItems();
   }
   else { this.getReady(); }
