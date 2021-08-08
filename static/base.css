@@ -15,10 +15,10 @@
 }
 
 
-/*.mw-500{*/
-/*    max-width: 500px;*/
-/*    padding: 1rem 1.5rem;*/
-/*}     #내부너비*/
+.mw-500{
+    max-width: 500px;
+    padding: 1rem 1.5rem;
+}
 
 
 
@@ -44,4 +44,15 @@
 
 .round_button:hover{
     color : dimgrey;
+}
+
+.article_image {
+    width: 60%;
+    border-right: 2rem;
+    box-shadow: 0 0 1rem grey;
+}
+
+.article_content{
+    text-align: left;
+    font-size: 1.1rem;
 }

@@ -14,14 +14,16 @@ from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountCreationForm
 from accountapp.models import HelloWorld
 
-@login_required(login_url=reverse_lazy('accountapp:login'))
+@login_required
 def hello_world(request):
     # if request.user.is_authenticated:
     if request.method == "POST":
         temp = request.POST.get('input_text')
+
         new_hello_world = HelloWorld()
         new_hello_world.text = temp
         new_hello_world.save()
+
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
 
     else:
