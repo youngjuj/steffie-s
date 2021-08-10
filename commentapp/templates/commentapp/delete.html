@@ -12,7 +12,7 @@
             </h4>
         </div>
         <div>
-            <form action="{% url 'accountapp:delete' pk=target_user.pk %} "method="post">
+            <form action="{% url 'accountapp:delete' pk=target_comment.pk %} "method="post">
                 {% csrf_token %}
                 <div class="m-5">
                     <input type="submit"
