@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -20,13 +21,17 @@ class LikeArticleView(RedirectView):
         like_record = LikeRecord.objects.filter(user=user,
                                                 article=article)
         if like_record.exists():
+            #좋아요 반영 안됨 = error message
+            messages.add_message(request, messages.ERROR, 'You can click the button only once.')
             return HttpResponseRedirect(reverse('articleapp:detail',
                                                 kwargs={'pk': kwargs['article_pk']}))
         else:
+            #좋아요 반영 구간
             LikeRecord(user=user, article=article).save()
         article.like += 1
         article.save()
 
+        messages.add_message(request, messages.SUCCESS, 'You liked it.')
         return super().get(request, *args, **kwargs)
 
     def get_redirect_url(self, *args, **kwargs):

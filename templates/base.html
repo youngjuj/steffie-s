@@ -9,6 +9,14 @@
 
 <hr>
 
+{% for message in messages %}
+    <div class="text-center">
+        <div> {#여기서 메세지 모양 지정 가능#}
+            {{ message }}
+        </div>
+    </div>
+{% endfor %}
+
 {% block content %}
 {% endblock %}
 
