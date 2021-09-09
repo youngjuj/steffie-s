@@ -86,3 +86,5 @@ media/
 staticfiles/
 
 STEFFIE_WT.pem
+
+Dockerfile
