@@ -88,3 +88,5 @@ staticfiles/
 STEFFIE_WT.pem
 
 Dockerfile
+
+nginx.conf
