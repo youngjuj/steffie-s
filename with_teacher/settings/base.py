@@ -17,32 +17,9 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib.messages import constants as messages
 
-BASE_DIR = Path(__file__).resolve().parent.parent #셋팅스의 부모파일은 위드티쳐, 그의 부모파일은 위드티쳐=최상위폴더
+BASE_DIR = Path(__file__).resolve().parent.parent.parent #셋팅스의 부모파일은 위드티쳐, 그의 부모파일은 위드티쳐=최상위폴더
 
-env_list = dict()
 
-local_env = open(os.path.join(BASE_DIR, '.env'))    #운영체제 내의 경로로 베이스디렉토리랑 .env를 합쳐주는 함수를 경로로 다시 돌려줌
-
-while True:
-    line = local_env.readline()
-    if not line:
-        break
-    line = line.replace('\n', '')     #공백제거용
-    start = line.find('=')        #제일 먼저 나오는 인덱스를 알려줌(=을 기준으로 인덱스, 값 구분)
-    key = line[:start]            #스타트까지의 값이 키가 되고
-    value = line[start+1:]         #스타트+1부터 끝까지를 값으로
-    env_list[key] = value
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env_list['SECRET_KEY']
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
 
 # MESSAGE_TAGS = {
 #     messages.ERROR: 'danger',
@@ -103,12 +80,7 @@ WSGI_APPLICATION = 'with_teacher.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
 
 
 # Password validation
@@ -154,7 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../../media')
 
 
 STATICFILES_DIRS = [
