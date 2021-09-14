@@ -3,7 +3,7 @@ from .base import *
 
 env_list = dict()
 
-local_env = open(os.path.join(BASE_DIR, '../../.env'))    #운영체제 내의 경로로 베이스디렉토리랑 .env를 합쳐주는 함수를 경로로 다시 돌려줌
+local_env = open(os.path.join(BASE_DIR, '.env'))    #운영체제 내의 경로로 베이스디렉토리랑 .env를 합쳐주는 함수를 경로로 다시 돌려줌
 
 while True:
     line = local_env.readline()
