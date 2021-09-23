@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    image: nginx:1.19.5
+    ports:
+      - 80:80
+    networks:
+      - with_teacher_network
+    volumes:
+      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
+      - with_teacher_static:/data/static/
+      - with_teacher_media:/data/media/
+
+  django:
+    image: with_teacher_django:3
+    networks:
+      - with_teacher_network
+    volumes:
+      - with_teacher_static:/home/with_teacher/staticfiles/
+      - with_teacher_media:/home/with_teacher/media/
+
+networks:
+  with_teacher_network:
+
+volumes:
+  with_teacher_static:
+  with_teacher_media:
