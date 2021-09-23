@@ -14,12 +14,24 @@ services:
       - with_teacher_media:/data/media/
 
   django:
-    image: with_teacher_django:3
+    image: with_teacher_django:4
     networks:
       - with_teacher_network
     volumes:
       - with_teacher_static:/home/with_teacher/staticfiles/
       - with_teacher_media:/home/with_teacher/media/
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - with_teacher_network
+    volumes:
+      - with_teacher_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
 
 networks:
   with_teacher_network:
@@ -27,3 +39,4 @@ networks:
 volumes:
   with_teacher_static:
   with_teacher_media:
+  with_teacher_mariadb:
