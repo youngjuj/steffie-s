@@ -22,8 +22,8 @@ services:
       - with_teacher_media:/home/with_teacher/media/
     secrets:
       - DjangoSecretKey
-      - MariadbUser
-      - MariadbPassword
+      - MARIADB_USER
+      - MARIADB_PASSWORD
 
   mariadb:
     image: mariadb:10.5
