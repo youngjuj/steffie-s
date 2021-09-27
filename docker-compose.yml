@@ -22,6 +22,8 @@ services:
       - with_teacher_media:/home/with_teacher/media/
     secrets:
       - DjangoSecretKey
+      - MariadbUser
+      - MariadbPassword
 
   mariadb:
     image: mariadb:10.5
@@ -29,6 +31,10 @@ services:
       - with_teacher_network
     volumes:
       - with_teacher_mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
     environment:
       MARIADB_ROOT_PASSWORD: password1234
       MARIADB_DATABASE: django
@@ -45,4 +51,10 @@ volumes: #자동으로 만들기 가능
 
 secrets: #지정 필수
   DjangoSecretKey:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  MARIADB_USER:
+    external: true
+  MARIADB_PASSWORD:
     external: true
