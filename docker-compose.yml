@@ -16,6 +16,16 @@ services:
       - with_teacher_static:/data/static/
       - with_teacher_media:/data/media/
       - with_teacher_log:/var/log/nginx/
+    secrets:
+      - NGINX_AUTH
+
+  goaccess:
+    image: allinurl/goaccess:1.5.1
+    ports:
+      - 7890:7890
+    volumes:
+      - with_teacher_log:/var/log/nginx/
+    command: /var/log/nginx/with_teacher_access.log -o /var/log/nginx/report.html --real-time-html --log-format COMBINED
 
   django:
     image: with_teacher_django:5
@@ -62,4 +72,6 @@ secrets: #지정 필수
   MARIADB_USER:
     external: true
   MARIADB_PASSWORD:
+    external: true
+  NGINX_AUTH:
     external: true
