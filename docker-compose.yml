@@ -5,13 +5,17 @@ services:
   nginx:
     image: nginx:1.19.5
     ports:
-      - 80:80
+      - mode: host
+        protocol: tcp
+        target: 80
+        published: 80
     networks:
       - with_teacher_network
     volumes:
       - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
       - with_teacher_static:/data/static/
       - with_teacher_media:/data/media/
+      - with_teacher_log:/var/log/nginx/
 
   django:
     image: with_teacher_django:5
@@ -48,6 +52,7 @@ volumes: #자동으로 만들기 가능
   with_teacher_static:
   with_teacher_media:
   with_teacher_mariadb:
+  with_teacher_log:
 
 secrets: #지정 필수
   DjangoSecretKey:
