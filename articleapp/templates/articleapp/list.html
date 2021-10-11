@@ -32,6 +32,10 @@
         {% for article in article_list %}
 
             <div>
+                <a href="{% static 'js/sketch.js' %}"></a>
+            </div>
+
+            <div>
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}" alt="">
                 </a>
@@ -42,6 +46,7 @@
 
     </div>
 
+    <script src="{% static 'js/magicgrid.js' %}"></script>
     <script src="{% static 'js/sketch.js' %}"></script>
 
     {% include 'snippets/pagination.html' %}
